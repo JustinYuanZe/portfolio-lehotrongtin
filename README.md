@@ -17,11 +17,11 @@ Open index.html in any web browser
 That's it! The website is ready to use
 
 📄 Document Files
-1.pdf - Academic Resume
+1.pdf - week 1
 
-2.pdf - Number Theory Portfolio
+2.pdf - week 2
 
-3.pdf - Teaching Methodology
+3.pdf - week 3
 
 🌐 Deployment
 Upload all files to any web hosting service. The website works instantly since all files are in the same directory.
