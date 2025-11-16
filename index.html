@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le Ho Trong Tin - Math Tutor Portfolio</title>
+    <title>Le Ho Trong Tin - Number Theory & Olympiad Math Specialist</title>
     <style>
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -13,187 +13,359 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #34495e;
+            --background: #f9f9f9;
+        }
+        
         body {
-            background-color: #f5f7fa;
-            color: #333;
+            background-color: var(--background);
+            color: var(--text);
             line-height: 1.6;
         }
         
         .container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
         
+        /* Header Styles */
         header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
             color: white;
-            padding: 80px 0;
+            padding: 100px 0 80px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            font-weight: 700;
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(52, 152, 219, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(231, 76, 60, 0.1) 0%, transparent 20%);
         }
         
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        section {
-            padding: 60px 0;
-        }
-        
-        .about {
-            background-color: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-radius: 10px;
-            padding: 40px;
-            margin-top: -50px;
+        .header-content {
             position: relative;
             z-index: 1;
         }
         
+        .math-symbols {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
-            color: #2a5298;
-            font-size: 2rem;
+            margin-bottom: 50px;
+            color: var(--primary);
+            font-size: 2.2rem;
+            position: relative;
         }
         
-        .bio {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 30px;
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 15px auto;
+            border-radius: 2px;
         }
         
-        .bio p {
-            margin-bottom: 20px;
-        }
-        
-        .pdf-section {
+        .about-content {
             display: flex;
             flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
+            gap: 40px;
+            align-items: center;
         }
         
-        .pdf-card {
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .math-focus {
+            background: var(--light);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+            margin: 25px 0;
+        }
+        
+        .math-focus h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .math-focus ul {
+            padding-left: 20px;
+        }
+        
+        .math-focus li {
+            margin-bottom: 8px;
+        }
+        
+        .profile-image {
+            flex: 0 0 300px;
+            text-align: center;
+        }
+        
+        .profile-placeholder {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            border-radius: 50%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Handouts Section */
+        .handouts {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .handouts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .handout-card {
             background: white;
             border-radius: 10px;
+            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            padding: 30px;
-            width: 100%;
-            max-width: 350px;
-            text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        .pdf-card:hover {
+        .handout-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         
-        .pdf-icon {
-            font-size: 3rem;
-            color: #e74c3c;
-            margin-bottom: 20px;
+        .handout-icon {
+            background: var(--primary);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            font-size: 3.5rem;
         }
         
-        .pdf-card h3 {
+        .handout-content {
+            padding: 25px;
+        }
+        
+        .handout-content h3 {
+            color: var(--primary);
             margin-bottom: 15px;
-            color: #2a5298;
+            font-size: 1.4rem;
         }
         
-        .pdf-card p {
+        .handout-content p {
             margin-bottom: 20px;
             color: #666;
         }
         
         .btn {
             display: inline-block;
-            background: #2a5298;
+            background: var(--secondary);
             color: white;
             padding: 12px 25px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: 600;
             transition: background 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
         
         .btn:hover {
-            background: #1e3c72;
+            background: #2980b9;
         }
         
+        .file-info {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #888;
+        }
+        
+        /* Footer */
         footer {
-            background-color: #1a1a2e;
+            background: var(--dark);
             color: white;
             text-align: center;
             padding: 30px 0;
-            margin-top: 60px;
         }
         
+        /* Responsive Design */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2rem;
+            h1 {
+                font-size: 2.5rem;
             }
             
-            .about {
-                padding: 30px 20px;
+            .subtitle {
+                font-size: 1.2rem;
             }
             
-            .pdf-card {
-                max-width: 100%;
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .profile-image {
+                order: -1;
+            }
+            
+            .profile-placeholder {
+                width: 200px;
+                height: 200px;
+                font-size: 4rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                padding: 80px 0 60px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header Section -->
     <header>
         <div class="container">
-            <h1>Le Ho Trong Tin</h1>
-            <p>Mathematics Tutor & Educator</p>
+            <div class="header-content">
+                <div class="math-symbols">∑ ∫ ∏ √ ∞</div>
+                <h1>Le Ho Trong Tin</h1>
+                <p class="subtitle">Number Theory & Olympiad Mathematics Specialist</p>
+            </div>
         </div>
     </header>
-    
-    <section class="container">
-        <div class="about">
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
             <h2 class="section-title">About Me</h2>
-            <div class="bio">
-                <p>Hello! I'm Le Ho Trong Tin, a passionate and dedicated mathematics tutor with several years of experience helping students unlock their potential in mathematics. My teaching philosophy centers on building strong foundational knowledge while making complex mathematical concepts accessible and engaging.</p>
-                
-                <p>I specialize in tutoring students at various levels, from middle school to university, covering topics ranging from basic arithmetic and algebra to advanced calculus and statistics. My approach is tailored to each student's unique learning style, ensuring they not only improve their grades but also develop genuine confidence in their mathematical abilities.</p>
-                
-                <p>Whether you're struggling with homework, preparing for exams, or looking to deepen your understanding of mathematical concepts, I'm here to guide you on your mathematical journey. Let's work together to make math less intimidating and more enjoyable!</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am Le Ho Trong Tin, a dedicated mathematics educator specializing in number theory and mathematical olympiad training. With a profound passion for the elegance and depth of number theory, I guide students through the fascinating world of integers, primes, congruences, and Diophantine equations.</p>
+                    
+                    <p>My journey in mathematics began with national mathematical competitions, where I developed a deep appreciation for problem-solving and proof-based mathematics. This foundation has shaped my teaching philosophy, which emphasizes conceptual understanding, creative problem-solving, and mathematical rigor.</p>
+                    
+                    <div class="math-focus">
+                        <h3>Specialized Focus Areas:</h3>
+                        <ul>
+                            <li>Elementary and Analytic Number Theory</li>
+                            <li>Diophantine Equations and Congruences</li>
+                            <li>Mathematical Olympiad Problem Solving</li>
+                            <li>Competition Mathematics Training</li>
+                            <li>Proof Techniques and Mathematical Writing</li>
+                        </ul>
+                    </div>
+                    
+                    <p>I work with students preparing for national and international mathematical competitions, helping them develop the problem-solving strategies and mathematical maturity needed to excel in these challenging contests. My approach combines deep theoretical understanding with extensive practice on carefully selected problems.</p>
+                </div>
+                <div class="profile-image">
+                    <div class="profile-placeholder">LHT</div>
+                </div>
             </div>
         </div>
     </section>
-    
-    <section class="container">
-        <h2 class="section-title">My Documents</h2>
-        <div class="pdf-section">
-            <div class="pdf-card">
-                <div class="pdf-icon">📄</div>
-                <h3>Resume</h3>
-                <p>My professional resume detailing my education, experience, and qualifications as a mathematics tutor.</p>
-                <a href="resume.pdf" class="btn" target="_blank">View Resume</a>
-            </div>
-            
-            <div class="pdf-card">
-                <div class="pdf-icon">📊</div>
-                <h3>Teaching Portfolio</h3>
-                <p>A comprehensive portfolio showcasing my teaching methodology, success stories, and sample lesson plans.</p>
-                <a href="portfolio.pdf" class="btn" target="_blank">View Portfolio</a>
+
+    <!-- Handouts Section -->
+    <section class="handouts">
+        <div class="container">
+            <h2 class="section-title">My Handouts</h2>
+            <div class="handouts-grid">
+                <div class="handout-card">
+                    <div class="handout-icon">📄</div>
+                    <div class="handout-content">
+                        <h3>Number Theory Fundamentals</h3>
+                        <p>Comprehensive guide covering divisibility, primes, congruences, and modular arithmetic - essential foundations for olympiad mathematics.</p>
+                        <a href="1.pdf" class="btn" target="_blank">Download Handout</a>
+                        <p class="file-info">File: 1.pdf</p>
+                    </div>
+                </div>
+                
+                <div class="handout-card">
+                    <div class="handout-icon">📊</div>
+                    <div class="handout-content">
+                        <h3>Diophantine Equations</h3>
+                        <p>Advanced techniques for solving Diophantine equations, including linear equations, Pythagorean triples, and Pell's equation applications.</p>
+                        <a href="2.pdf" class="btn" target="_blank">Download Handout</a>
+                        <p class="file-info">File: 2.pdf</p>
+                    </div>
+                </div>
+                
+                <div class="handout-card">
+                    <div class="handout-icon">📚</div>
+                    <div class="handout-content">
+                        <h3>Olympiad Problem Solving</h3>
+                        <p>Collection of challenging olympiad problems with detailed solutions and strategic approaches for competition preparation.</p>
+                        <a href="3.pdf" class="btn" target="_blank">Download Handout</a>
+                        <p class="file-info">File: 3.pdf</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    
+
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2023 Le Ho Trong Tin. All Rights Reserved.</p>
+            <p>&copy; 2025 Le Ho Trong Tin. All Rights Reserved.</p>
+            <p>Contact: lehotrongtin10a1@gmail.com</p>
         </div>
     </footer>
 </body>
